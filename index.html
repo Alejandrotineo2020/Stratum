@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mini Gemini AI</title>
+  
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Prism (Syntax Highlighting) -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  
+  <!-- Sidebar de Historial -->
+  <aside id="sidebar" class="sidebar hidden">
+    <div class="sidebar-header">
+      <h2><i class="fa-solid fa-server"></i> Esta es mi memoria</h2>
+      <button id="close-sidebar"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div id="history-list" class="history-list"></div>
+  </aside>
+
+  <!-- Contenedor Principal -->
+  <main class="app-container">
+    <!-- Header -->
+    <header class="cyber-header">
+      <button id="menu-btn" class="cyber-btn icon-btn"><i class="fa-solid fa-bars"></i></button>
+      <div class="brand">
+        <h1>STRATUM<span>V15.5</span></h1>
+        <div class="status-link">MODEL: <span id="current-model-display">gemini-1.5-pro</span></div>
+      </div>
+      <button id="tts-btn" class="cyber-btn icon-btn"><i class="fa-solid fa-volume-xmark"></i></button>
+    </header>
+
+    <!-- Chat Box -->
+    <section id="chat-box" class="chat-box"></section>
+
+    <!-- Input Zone -->
+    <footer class="input-zone">
+      <button id="new-chat-btn" class="cyber-btn action-btn" title="Nuevo Chat"><i class="fa-solid fa-plus"></i></button>
+      
+      <div class="input-wrapper">
+        <textarea id="prompt-input" placeholder="Inyecta comando (SHIFT+ENTER nueva línea)..."></textarea>
+        
+        <div class="input-tools">
+          <label for="file-upload" class="tool-btn" title="Adjuntar Archivos"><i class="fa-solid fa-paperclip"></i></label>
+          <input type="file" id="file-upload" multiple accept=".pdf,.txt,.csv,.json,.js,.py,.sql,image/*" hidden />
+          <button id="mic-btn" class="tool-btn" title="Dictado STT"><i class="fa-solid fa-microphone"></i></button>
+        </div>
+      </div>
+      
+      <button id="send-btn" class="cyber-btn action-btn neon-green"><i class="fa-solid fa-paper-plane"></i></button>
+    </footer>
+  </main>
+
+  <!-- Modal Login Pro -->
+  <div id="pro-modal" class="modal hidden">
+    <div class="modal-content cyber-card">
+      <h2><i class="fa-solid fa-triangle-exclamation"></i> LÍMITE DE CUOTA ALCANZADO</h2>
+      <p>Todos los modelos de la red principal han fallado o requieren acceso PRO (Error 429/403).</p>
+      <input type="password" id="new-api-key" placeholder="Inyectar nueva API Key válida..." />
+      <div class="modal-actions">
+        <button id="save-key-btn" class="cyber-btn neon-green">AUTENTICAR</button>
+        <button id="close-modal-btn" class="cyber-btn">CANCELAR</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Librerías Externas -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+  
+  <script type="module" src="/main.js"></script>
+</body>
+</html>
